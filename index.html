@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSS Club Tut1</title>
+</head>
+<body>
+    <!--Heading-->
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    
+    <!--Paragraph-->
+    <hr>
+    <p>This is a paragraph</p>
+    
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, consectetur nostrum provident neque mollitia labore reprehenderit, modi blanditiis ipsum alias quas vero praesentium, illo optio est laudantium magni ratione pariatur expedita cum aspernatur? Neque ipsam fuga nihil cumque nisi similique.
+    </p>
+
+    <hr>
+    <p>For shortcut to next line from anywhere -> ctrl+"Enter"</p>
+
+    <!--Subscript-->
+    <hr>
+    <h4>This is Subscript</h4>
+    <P>H<sub>2</sub>O</P>
+
+    <!--Superscript-->
+    <hr>
+    <h4>This is Superscript</h4>
+    <pre>3<sup>2</sup> = 9</pre>
+
+    <!--Hyperlink-->
+    <hr>
+    <h4>This is hypelink</h4>
+    <a href="https://www.amazon.in/">amazon.in</a>
+
+    <!--New tab opening in hyperlink-->
+    <p>for opening in new tab</p>
+    <a href="https://www.amazon.in/" target="_blank">amazon.in</a>
+
+    <hr>
+    <!--Image Insertion-->
+    <h4>It's an image</h4>
+    <img src="\OSS Club Tutorials\carbon.png" alt="image1" height = 500px>
+
+    <hr>
+    <!--Unordered List-->
+    <h4>this is unordered list</h4>
+    <ul>
+        <li>flower</li>
+        <li>eggs</li>
+        <li>milk</li>
+        <li>curd</li>
+    </ul>
+    <br>
+
+    <!--Ordered List-->
+    <h4>this is ordered list</h4>
+    <ol>
+        <li>beat eggs</li>
+        <li>add sugar</li>
+        <li>mix flour</li>
+        <li>mix flour</li>
+        <li>mix flour</li>
+<!-- for copying same line -> alt+shift+down arrow -->
+    </ol>
+
+    
+    <ol type="A">
+        <li>beat eggs</li>
+        <li>add sugar</li>
+        <li>mix flour</li>
+        <li>mix flour</li>
+        <li>mix flour</li>
+        <!-- for copying same line -> alt+shift+down arrow -->
+    </ol>
+
+    <hr>
+    <h4>This is description List</h4>
+    <dl>
+        <dt>Spark</dt>
+        <dd>This is Web Dev class for FE's</dd>
+        <dt>Replica</dt>
+        <dd>THis is a comepetition for FE's </dd>
+    </dl>
+    
+    <div>
+        <hr>
+        <h4>It's an image</h4>
+        <img src="\OSS Club Tutorials\carbon.png" alt="image1" height = "500">
+    </div>
+
+    <div>
+        <hr>
+        <h4>This is Listing in HTML</h4>
+        <p>Unordered Lists</p>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Javascript</li>
+            <li>Database</li>
+        </ul>
+        <p>Ordered Lists</p>
+        <ol>
+            <li>Mongo DB</li>
+            <li>Express.js</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+        </ol>
+
+    </div>
+
+    <div>
+        <hr>
+        <h4>This is Table in HTML</h4>
+        <table border="2">
+            <thead>
+                <caption><b>Table 1</b></caption>
+                <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Section</th>
+                    <th>Registration No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sayan Ghosh</td>
+                    <td>Comp</td>
+                    <td>B</td>
+                    <td>240238</td>
+                </tr>
+                <tr>
+                    <td>Anuj Pundir</td>
+                    <td>Comp</td>
+                    <td>B</td>
+                    <td>240236</td>
+                </tr>
+                <tr>
+                    <td>Radhika</td>
+                    <td>ENTC</td>
+                    <td>B</td>
+                    <td>240620</td>
+                </tr>
+                <tr>
+                    <td>Radha</td>
+                    <td colspan="2">IT</td>
+                    <!-- <td>B</td> -->
+                    <td>240620</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Radhika</td>
+                    <td>ENTC</td>
+                    <td>B</td>
+                    <td>240620</td>
+                </tr>
+                <tr>
+                    <!--<td>Radhika</td> -->
+                    <td>Mech</td>
+                    <td>B</td>
+                    <td>240620</td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <td colspan="4">Copyright @abc.company</td>
+            </tfoot>
+        </table>
+    </div>
+
+    <div>
+        <hr>
+        <h4>This is Forms </h4>
+        
+        <form action="no action now">
+            <div id="Entry" class="Form0">
+                <hr>
+                <h4>This is the EntrySpace feature in forms</h4>
+                <label for="uname">
+                    <input type="Text" placeholder="Username" class="Form0">
+                </label>
+                <br>
+                <br>
+                <label for="pass">
+                    <input type="Password" placeholder="Password" class="Form0">
+                </label>
+            </div>
+            
+            <div id="Rdbtn" class="Form1">
+                <hr>
+                <h4>This is the radiobutton feature in forms</h4>
+                <label for="Rdbtn1">
+                    <input type="radio" value="class 11" name="class" id="id1" class="Form1">Class XI
+                </label>
+                <br>
+                <label for="Rdbtn2">
+                    <input type="radio" value="class 12" name="class" id="id2" class="Form1">Class XII
+                </label>
+            </div>
+
+            <div id="chckbox" class="Form3">
+                <hr>
+                <h4>This is the Checkbox in forms</h4>
+                <label for="chckbox1">
+                    <input type="checkbox" value="FE" name="chkclass" id="chckbox1" class="Form3">FE
+                </label>
+                <br>
+                <label for="chckbox2">
+                    <input type="checkbox" value="SE" name="chkclass" id="chckbox2" class="Form3">SE
+                </label>
+            </div>
+
+            <div id="txtara" class="Form4">
+               <hr>
+               <h4>Textarea for user feedback or any other uses according to the user</h4>
+               <textarea name="textarea" id="txtara1" placeholder="Please Provide your valuable feedback" rows="10" cols="50" class="Form4"></textarea>
+            </div>
+
+            <div id="slct" class="Form5">
+                <hr>
+                <h4>This is the select dropdown menu</h4>
+                Please Select the Language you want to work with
+                <select name="languages" id="slct1">
+                    <option value="">--Please Select any of the following options--</option>
+                    <option value="Python">Python</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+            <br>
+            <input type="submit" name="submit" id="1001">
+
+        </form>
+    </div>
+
+    <div>
+        <hr>
+        <h4>It is iframe tag which is used to embed another webpages into website</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HcOc7P5BMi4?si=yCMlmbaqr4ztH3fG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <br>
+    </div>
+
+    <hr>
+
+    <!-- Forms by OSS Club-->
+
+    <div>
+        <form action="">
+            <h3><i><u>This is Forms by OSS - A bit advanced</u></i></h3>
+            <label for="fname"><b>Enter Your First Name</b></label>
+            <input type="text" id="fname" >
+            <br><br>
+            <!-- responciveness can be got only when id is selceted as well as the for statement with the same input-->
+
+            <label for="sname"><b>Enter Your Second Name</b></label>
+            <input type="text" id="sname">
+            <br><br>
+
+            <label for="asd">Gender</label>
+            <br>
+            <input type="radio" name="gen" id="asd"><label for="gen">Male</label>
+            <br>
+            <input type="radio" name="gen" id="asd"><label for="gen">Female</label>
+            <br><br>
+
+            <label for="Age"><b>Enter Your Age</b></label>
+            <input type="number" >
+            <br><br>
+
+            <label for="Cities"><b>Cities</b></label>
+            <select name="Cities" id="Cities">
+                <option value="knp">Kanpur</option>
+                <option value="lck">Lucknow</option>
+                <option value="bns">Benaras</option>
+                <option value="agr">Agra</option>
+                <option value="dl">Delhi</option>
+                <option value="any">Anything</option>
+            </select>
+            <br><br>
+
+            <label for="">Hobbies</label>
+            <br>
+            <input type="checkbox"><label for="">Reading Books</label>
+            <br>
+            <input type="checkbox"><label for="">playing games</label>
+            <br>
+            <input type="checkbox"><label for="">Time Wasting</label>
+            <br>
+            <input type="checkbox"><label for="">Chill Life</label>
+            <br><br>
+
+            <label for="">Color</label>
+            <input type="color" name="" id="">
+
+
+            <label for="DOB"><b>Enter Your Date of Birth</b></label>
+            <input type="date" id="DOB">
+            <br><br>
+
+            <label for="email"><b>Enter Your Email</b></label>
+            <input type="email">
+            <br><br>
+
+            <label for="Password"><b>Enter Your Password</b></label>
+            <input type="password">
+            <br><br>
+
+
+            <label for="Gender"><b>Enter Your Gender</b></label>
+            <input type="radio"><label for=""></label>
+            <br><br>
+
+            <input type="submit">
+            <input type="reset">
+
+        </form>
+    </div>
+
+</body>
+</html>

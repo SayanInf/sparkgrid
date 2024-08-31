@@ -1,0 +1,65 @@
+/* .fe{
+    background-color: pink;
+}
+#cssid{
+    background-color: aqua;
+} */
+
+/*comments in CSS*/
+
+/* div h1{
+    background-color: cyan;
+}
+div h1:hover{
+    background-color: chocolate;
+} */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.OSS1 h1{
+    font-family: "Bungee Tint", sans-serif;
+    background-color: rgba(36, 172, 172);
+    border: 5px black;
+    border-style: groove;
+    padding: 20px;
+    padding-bottom: 90px;
+    margin: 100px;
+    /* height: 200px;
+    width: 200px; */
+    box-sizing: border-box;
+}
+
+.OSS2 h1{
+    font-family: "Bungee Tint", sans-serif;
+    background-color: rgba(36, 172, 172);
+    border: 5px black;
+    border-style: groove;
+    padding: 20px;
+    padding-bottom: 90px;
+    margin: 100px;
+    height: 200px;
+    width: 200px;
+    box-sizing: content-box;
+}
+
+body {
+    font-family: "Baskervville SC", serif;
+}
+
+div {
+    background-color: yellow;
+    width: 50vw;
+
+
+}
+
+/* 16 pixels = 1 REM */
+
+.box {
+    width: 400px;
+    height: 100px;
+    background-color: green;
+}
