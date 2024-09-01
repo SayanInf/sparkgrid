@@ -1,0 +1,72 @@
+body {
+    
+    margin: 0;
+    padding: 0;
+    background-color: #d4161600;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    padding-right: 45px;
+    padding-left: 45px;
+}
+
+
+.profile{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 2px solid gray;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.141)
+   
+}   
+
+.instalogo{
+  
+    align-items: start;
+    margin-left: 2px;    width: 234px;
+
+}
+
+.profilephoto{
+    
+    width: 12px;
+    align-items: center;  
+    margin-top: 40px; 
+    box-sizing: border-box;
+    
+}
+
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 5px;
+    text-align: center;
+}       
+
+
+
+.profile .menu{
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 20px;
+   
+}
+
+.profile .menu a {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    font-size: 18px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.outreach {
+    display: flex;
+}
