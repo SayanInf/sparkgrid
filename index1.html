@@ -1,19 +1,806 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix</title>
-</head>
-<body>
-    <h1>kuch to hua hai</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Raaga – College Radio Club</title>
+    <style>
+      :root {
+        --primary: #ffe800;
+        --dark: #050505;
+        --light: #f5f5f5;
+        --accent: #ffffff;
+        --text-muted: #bbbbbb;
+      }
 
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, ipsam?
-    </p>
-    <h5>ye bhi kuch hai</h5>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
 
-    
+      body {
+        background: #111111;
+        color: var(--light);
+        line-height: 1.6;
+      }
 
-</body>
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* Top header banner */
+      .club-header {
+        background: #000000;
+        border-bottom: 3px solid var(--primary);
+      }
+
+      .club-header img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Navigation */
+      .nav {
+        background: #000000;
+        border-bottom: 1px solid #222222;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.6rem 1rem;
+      }
+
+      .nav-title {
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--primary);
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .nav-links a {
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      .nav-links a:hover {
+        background: var(--primary);
+        color: #000000;
+      }
+
+      /* Layout container */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.5rem 1rem 3rem;
+      }
+
+      /* Hero section */
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+        gap: 2rem;
+        align-items: center;
+        padding: 2rem 1.5rem;
+        border-radius: 10px;
+        background: radial-gradient(circle at top left, #333333, #000000);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        margin-bottom: 2.5rem;
+      }
+
+      .hero-badge {
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.9rem, 3vw, 2.5rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-highlight {
+        color: var(--primary);
+      }
+
+      .hero-subtitle {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+        max-width: 28rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        border: none;
+        cursor: pointer;
+        padding: 0.7rem 1.3rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s;
+        white-space: nowrap;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #000000;
+        box-shadow: 0 0 25px rgba(255, 232, 0, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 35px rgba(255, 232, 0, 0.7);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 1px solid #444444;
+        color: var(--light);
+      }
+
+      .btn-secondary:hover {
+        background: #222222;
+      }
+
+      .hero-meta {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+
+      .hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .hero-right {
+        background: #000000;
+        border-radius: 12px;
+        padding: 1rem 1.25rem 1.2rem;
+        border: 1px solid #222222;
+      }
+
+      .player-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.8rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .live-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: #ff3b3b;
+        box-shadow: 0 0 10px rgba(255, 59, 59, 0.8);
+      }
+
+      .player-card {
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        gap: 0.9rem;
+        align-items: center;
+        margin-bottom: 0.9rem;
+      }
+
+      .cover-art {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ffe800, #ff9300);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: #000000;
+        font-weight: 700;
+        text-align: center;
+        padding: 0.3rem;
+      }
+
+      .track-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .track-host {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .progress {
+        position: relative;
+        width: 100%;
+        height: 5px;
+        border-radius: 999px;
+        background: #262626;
+        overflow: hidden;
+        margin: 0.9rem 0 0.7rem;
+      }
+
+      .progress-bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 45%;
+        background: linear-gradient(90deg, #ffe800, #ffdd55);
+      }
+
+      .player-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .controls-main {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .circle-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        border: none;
+        background: #222222;
+        color: var(--light);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: background 0.2s, transform 0.1s;
+      }
+
+      .circle-btn.primary {
+        background: var(--primary);
+        color: #000000;
+      }
+
+      .circle-btn:hover {
+        transform: translateY(-1px);
+        background: #333333;
+      }
+
+      .circle-btn.primary:hover {
+        background: #ffe600;
+      }
+
+      /* Sections */
+      section {
+        margin-bottom: 2.5rem;
+      }
+
+      section h2 {
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--primary);
+        margin-bottom: 0.6rem;
+      }
+
+      section p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        max-width: 40rem;
+      }
+
+      /* Grid cards */
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-top: 1.3rem;
+      }
+
+      .card {
+        background: #050505;
+        border-radius: 10px;
+        padding: 1rem;
+        border: 1px solid #222222;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+        font-size: 0.9rem;
+      }
+
+      .card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+        color: var(--accent);
+      }
+
+      .card small {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      /* Schedule list */
+      .schedule-list {
+        margin-top: 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .schedule-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.55rem 0;
+        border-bottom: 1px dashed #333333;
+      }
+
+      .schedule-item:last-child {
+        border-bottom: none;
+      }
+
+      .schedule-time {
+        color: var(--primary);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .schedule-title {
+        font-weight: 500;
+      }
+
+      .schedule-meta {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      /* Contact */
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        gap: 2rem;
+        margin-top: 1.2rem;
+      }
+
+      form {
+        display: grid;
+        gap: 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-muted);
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        background: #050505;
+        border-radius: 6px;
+        border: 1px solid #333333;
+        padding: 0.6rem 0.7rem;
+        color: var(--light);
+        font-size: 0.9rem;
+        outline: none;
+        transition: border 0.2s, box-shadow 0.2s;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 1px rgba(255, 232, 0, 0.4);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 110px;
+      }
+
+      .contact-info {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .contact-info strong {
+        color: var(--accent);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 0.7rem;
+        margin-top: 0.7rem;
+        font-size: 0.85rem;
+      }
+
+      .social-links a {
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        border: 1px solid #333333;
+      }
+
+      .social-links a:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid #222222;
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        background: #000000;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-right {
+          order: -1;
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.4rem;
+        }
+
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding: 1.3rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Banner with your header image -->
+    <header class="club-header">
+      <img
+        src="radio-club-header.jpg"
+        alt="Radio Raaga College Radio Club Header"
+      />
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="nav-title">Radio Raaga Club</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#shows">Shows</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Join Us</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div>
+          <div class="hero-badge">Campus Radio • College Name</div>
+          <h1 class="hero-title">
+            Tune your <span class="hero-highlight">hearts</span><br />
+            with our frequency
+          </h1>
+          <p class="hero-subtitle">
+            The official radio club of our college, broadcasting music, talk
+            shows, and campus stories curated entirely by students.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary">▶ Listen Live (Demo)</button>
+            <a href="#contact" class="btn btn-secondary">Join the Club</a>
+          </div>
+          <div class="hero-meta">
+            <span>● Student‑run 24×7 station</span>
+            <span>● Weekly live shows</span>
+            <span>● Workshops & events</span>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-label="Sample player (front‑end only)">
+          <div class="player-header">
+            <span>Now Playing</span>
+            <span style="display: flex; align-items: center; gap: 0.4rem">
+              <span class="live-dot"></span> Live
+            </span>
+          </div>
+
+          <div class="player-card">
+            <div class="cover-art">Radio<br />Raaga</div>
+            <div>
+              <div class="track-title">Campus Vibes Hour</div>
+              <div class="track-host">RJ Ananya • 08:00 – 09:00 PM</div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar"></div>
+          </div>
+
+          <div class="player-controls">
+            <div class="controls-main">
+              <button class="circle-btn">⏮</button>
+              <button class="circle-btn primary">▶</button>
+              <button class="circle-btn">⏭</button>
+            </div>
+            <div>Volume ▮▮▮▯▯</div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- About section -->
+      <section id="about">
+        <h2>About the club</h2>
+        <p>
+          Radio Raaga is the creative audio hub of our college, giving students
+          a platform to host shows, learn production, and share stories with the
+          entire campus community.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>What we do</h3>
+            <p>
+              Host music hours, talk shows, interviews, live event coverage, and
+              festival specials that capture the pulse of campus life.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Why it matters</h3>
+            <p>
+              Members gain real‑world experience in scripting, anchoring, sound
+              design, and content management while building confidence.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Who can join</h3>
+            <p>
+              Any student with interest in music, audio, media, or event
+              management, regardless of previous experience, is welcome.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shows / Schedule -->
+      <section id="shows">
+        <h2>Weekly shows</h2>
+        <p>
+          A sample schedule you can replace with your real show timings later.
+        </p>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div>
+              <div class="schedule-title">Morning Raaga</div>
+              <div class="schedule-meta">
+                Fresh hits, announcements, and quick campus updates.
+              </div>
+            </div>
+            <div class="schedule-time">Mon–Fri • 8–9 AM</div>
+          </div>
+
+          <div class="schedule-item">
+            <div>
+              <div class="schedule-title">Indie Hour</div>
+              <div class="schedule-meta">
+                Independent and regional artists hand‑picked by students.
+              </div>
+            </div>
+            <div class="schedule-time">Tue & Thu • 6–7 PM</div>
+          </div>
+
+          <div class="schedule-item">
+            <div>
+              <div class="schedule-title">Open Mic Live</div>
+              <div class="schedule-meta">
+                Poetry, stand‑up, and unplugged performances from campus.
+              </div>
+            </div>
+            <div class="schedule-time">Fri • 7–8 PM</div>
+          </div>
+
+          <div class="schedule-item">
+            <div>
+              <div class="schedule-title">Raaga After Dark</div>
+              <div class="schedule-meta">
+                Late‑night playlists and chilled conversations.
+              </div>
+            </div>
+            <div class="schedule-time">Sat • 10–11 PM</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team section -->
+      <section id="team">
+        <h2>Core team</h2>
+        <p>
+          Introduce your club faculty mentor and core student coordinators here.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <small>Faculty mentor</small>
+            <h3>Prof. Name Here</h3>
+            <p>
+              Guides the club, helps with events, and connects the station with
+              college administration.
+            </p>
+          </div>
+          <div class="card">
+            <small>Station head</small>
+            <h3>Student Name</h3>
+            <p>
+              Leads programming, plans the schedule, and coordinates between all
+              verticals.
+            </p>
+          </div>
+          <div class="card">
+            <small>Technical lead</small>
+            <h3>Student Name</h3>
+            <p>
+              Handles recording, editing, streaming setup, and hardware/software
+              maintenance.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / Join -->
+      <section id="contact">
+        <h2>Join the club</h2>
+        <p>
+          Use this form as a front‑end application form. Connect it to a backend
+          later or link it to a Google Form.
+        </p>
+        <div class="contact-wrapper">
+          <form>
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="dept">Department / Year</label>
+              <input
+                id="dept"
+                type="text"
+                placeholder="e.g., CSE • 2nd year"
+                required
+              />
+            </div>
+            <div>
+              <label for="email">College email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@college.edu"
+                required
+              />
+            </div>
+            <div>
+              <label for="role">Interested role</label>
+              <select id="role">
+                <option>RJ / Anchor</option>
+                <option>Content & Script</option>
+                <option>Technical & Editing</option>
+                <option>Social Media & PR</option>
+                <option>Event Management</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Tell us why you want to join</label>
+              <textarea
+                id="message"
+                placeholder="Write a few lines about yourself..."
+              ></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">
+              Submit (demo only)
+            </button>
+          </form>
+
+          <div class="contact-info">
+            <p>
+              <strong>Studio location:</strong> Radio Room, Student Activity
+              Centre, College Name
+            </p>
+            <p><strong>Mail us:</strong> radio.raaga@college.edu</p>
+            <p><strong>Club hours:</strong> Mon–Fri, 4:00 – 6:00 PM</p>
+
+            <div class="social-links">
+              <a href="#">Instagram</a>
+              <a href="#">YouTube</a>
+              <a href="#">Spotify</a>
+            </div>
+
+            <p style="margin-top: 0.9rem">
+              Replace these demo details with your real contact information and
+              social media links.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Radio Raaga • College Radio Club. All rights
+      reserved.
+    </footer>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
